@@ -22,6 +22,40 @@ namespace DbContext.Migrations.MySqlDbContext
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+<<<<<<< HEAD
+            modelBuilder.Entity("ArtistMusicGroup", b =>
+                {
+                    b.Property<Guid>("MembersArtistId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("MusicGroupsMusicGroupId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("MembersArtistId", "MusicGroupsMusicGroupId");
+
+                    b.HasIndex("MusicGroupsMusicGroupId");
+
+                    b.ToTable("ArtistMusicGroup");
+                });
+
+            modelBuilder.Entity("Models.Album", b =>
+                {
+                    b.Property<Guid>("AlbumId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("CopiesSold")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("MusicGroupsMusicGroupId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<int>("ReleaseYear")
+                        .HasColumnType("int");
+=======
             modelBuilder.Entity("FriendQuote", b =>
                 {
                     b.Property<Guid>("FriendsFriendId")
@@ -48,10 +82,29 @@ namespace DbContext.Migrations.MySqlDbContext
 
                     b.Property<string>("Country")
                         .HasColumnType("varchar(200)");
+>>>>>>> origin/main_friends
 
                     b.Property<bool>("Seeded")
                         .HasColumnType("tinyint(1)");
 
+<<<<<<< HEAD
+                    b.HasKey("AlbumId");
+
+                    b.HasIndex("MusicGroupsMusicGroupId");
+
+                    b.ToTable("Albums");
+                });
+
+            modelBuilder.Entity("Models.Artist", b =>
+                {
+                    b.Property<Guid>("ArtistId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime?>("BirthDay")
+                        .HasColumnType("datetime(6)");
+
+=======
                     b.Property<string>("Street")
                         .HasColumnType("varchar(200)");
 
@@ -78,6 +131,7 @@ namespace DbContext.Migrations.MySqlDbContext
                     b.Property<string>("Email")
                         .HasColumnType("varchar(200)");
 
+>>>>>>> origin/main_friends
                     b.Property<string>("FirstName")
                         .HasColumnType("varchar(200)");
 
@@ -87,6 +141,44 @@ namespace DbContext.Migrations.MySqlDbContext
                     b.Property<bool>("Seeded")
                         .HasColumnType("tinyint(1)");
 
+<<<<<<< HEAD
+                    b.HasKey("ArtistId");
+
+                    b.ToTable("Artists");
+                });
+
+            modelBuilder.Entity("Models.MusicGroup", b =>
+                {
+                    b.Property<Guid>("MusicGroupId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("EstablishedYear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<bool>("Seeded")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("MusicGroupId");
+
+                    b.ToTable("MusicGroups");
+                });
+
+            modelBuilder.Entity("ArtistMusicGroup", b =>
+                {
+                    b.HasOne("Models.Artist", null)
+                        .WithMany()
+                        .HasForeignKey("MembersArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Models.MusicGroup", null)
+                        .WithMany()
+                        .HasForeignKey("MusicGroupsMusicGroupId")
+=======
                     b.HasKey("FriendId");
 
                     b.HasIndex("AddressId");
@@ -159,10 +251,25 @@ namespace DbContext.Migrations.MySqlDbContext
                     b.HasOne("Models.Quote", null)
                         .WithMany()
                         .HasForeignKey("QuotesQuoteId")
+>>>>>>> origin/main_friends
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
+<<<<<<< HEAD
+            modelBuilder.Entity("Models.Album", b =>
+                {
+                    b.HasOne("Models.MusicGroup", "MusicGroups")
+                        .WithMany("Albums")
+                        .HasForeignKey("MusicGroupsMusicGroupId");
+
+                    b.Navigation("MusicGroups");
+                });
+
+            modelBuilder.Entity("Models.MusicGroup", b =>
+                {
+                    b.Navigation("Albums");
+=======
             modelBuilder.Entity("Models.Friend", b =>
                 {
                     b.HasOne("Models.Address", "Address")
@@ -189,6 +296,7 @@ namespace DbContext.Migrations.MySqlDbContext
             modelBuilder.Entity("Models.Friend", b =>
                 {
                     b.Navigation("Pets");
+>>>>>>> origin/main_friends
                 });
 #pragma warning restore 612, 618
         }

@@ -48,3 +48,7 @@ if ($Seed -eq "seed") {
     Set-Location ../AppSeeder
     dotnet run
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/main_friends
