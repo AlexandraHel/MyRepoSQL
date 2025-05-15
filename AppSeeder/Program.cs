@@ -78,10 +78,21 @@ namespace AppConsole
             var seeder = new SeedGenerator();
             
             //Seed Cars
+            var garages = seeder.ItemsToList<Garage>(10);
             var cars = seeder.ItemsToList<Car>(nrItems);
             foreach (var item in cars)
             {
                 item.Owner = new Owner().Seed(seeder);
+//                item.Garage = seeder.Bool ?seeder.FromList<Garage>(garages) :null;
+            }
+
+            foreach (var garage in garages)
+            {
+                garage.Cars = seeder.UniqueIndexPickedFromList(seeder.Next(1,4), cars);
+                foreach (var car in garage.Cars)
+                {
+                    car.Garage = garage;
+                }
             }
 
             return cars;
