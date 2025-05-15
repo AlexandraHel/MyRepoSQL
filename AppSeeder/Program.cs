@@ -78,7 +78,7 @@ namespace AppConsole
             var seeder = new SeedGenerator();
             
             //Seed Cars
-            var garages = seeder.ItemsToList<Garage>(10);
+            var garages = seeder.ItemsToList<Garage>(50);
             var cars = seeder.ItemsToList<Car>(nrItems);
             foreach (var item in cars)
             {
@@ -88,7 +88,7 @@ namespace AppConsole
 
             foreach (var garage in garages)
             {
-                garage.Cars = seeder.UniqueIndexPickedFromList(seeder.Next(1,4), cars);
+                garage.Cars = seeder.UniqueIndexPickedFromList(seeder.Next(1,11), cars);
                 foreach (var car in garage.Cars)
                 {
                     car.Garage = garage;
