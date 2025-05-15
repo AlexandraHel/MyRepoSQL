@@ -69,8 +69,8 @@ namespace AppConsole
         {
             Console.WriteLine($"NrOfCars: {modelList.Count()}");
                
-            Console.WriteLine($"First Car: {modelList.First().RegNumber} owned by {modelList.First().Owner.Name}");
-            Console.WriteLine($"Last Car: {modelList.Last().RegNumber} owned by {modelList.First().Owner.Name}");
+            Console.WriteLine($"First Car: {modelList.First().RegNumber} owned by {modelList.First().Owner.FirstName}");
+            Console.WriteLine($"Last Car: {modelList.Last().RegNumber} owned by {modelList.First().Owner.FirstName}");
         }
 
         private static List<Car> SeedModel(int nrItems)

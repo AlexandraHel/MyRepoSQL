@@ -50,7 +50,13 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("Seeded")

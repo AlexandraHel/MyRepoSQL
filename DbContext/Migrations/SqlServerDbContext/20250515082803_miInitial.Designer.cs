@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContext.Migrations.SqlServerDbContext
 {
     [DbContext(typeof(MainDbContext.SqlServerDbContext))]
-    [Migration("20250514153149_miInitial")]
+    [Migration("20250515082803_miInitial")]
     partial class miInitial
     {
         /// <inheritdoc />
@@ -53,7 +53,13 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("Seeded")

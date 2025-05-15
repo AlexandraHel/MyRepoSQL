@@ -30,6 +30,9 @@ On macOS in the terminal, type below commands. After each committment you will g
 SQLServer:
 dotnet ef database update --context SqlServerDbContext
 
+Drop database
+dotnet ef database drop -f --context SqlServerDbContext
+
 MariaDb:
 dotnet ef database update --context MySqlDbContext
 

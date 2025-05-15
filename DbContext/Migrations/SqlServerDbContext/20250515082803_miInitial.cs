@@ -16,7 +16,9 @@ namespace DbContext.Migrations.SqlServerDbContext
                 columns: table => new
                 {
                     OwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(200)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(200)", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     Seeded = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
